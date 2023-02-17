@@ -6,7 +6,7 @@
     $message .= URL::to(Request::root() . '/customer/ak-' . $row->id_servisan) ." %0a%0a";
     $message .= "(Jangan bagikan link ini kepada siapapun, Tanda terima ini digunakan untuk mengambil laptop anda)";
   ?>
-    <td>{{ $row->id_servisan }}</td>
+    <td>{{ $row->id_servisan }}</t  d>
     <td>{{ $row->customer->nama_customer . '(' . $row->customer->no_hp . ')' }}</td>
     <td>{{ $row->tgl_masuk }}</td>
     <td>{{ $row->brand->nama_brand . ' / ' . $row->model->nama_model }}</td>
@@ -14,7 +14,7 @@
     <td>{{ $row->catatan }}</td>
     <td>
         <span class="btn" style="background:{{ $row->warna }}">
-            .
+            <i class="fas fa-paint-roller text-white"></i>
         </span>
     </td>
     <td>
