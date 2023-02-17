@@ -7,8 +7,8 @@
     $message .= "(Jangan bagikan link ini kepada siapapun, Tanda terima ini digunakan untuk mengambil laptop anda)";
   ?>
     <td>{{ $row->id_servisan }}</td>
-    <td>{{ $row->tgl_masuk }}</td>
     <td>{{ $row->customer->nama_customer . '(' . $row->customer->no_hp . ')' }}</td>
+    <td>{{ $row->tgl_masuk }}</td>
     <td>{{ $row->brand->nama_brand . ' / ' . $row->model->nama_model }}</td>
     <td>{{ $row->masalah }}</td>
     <td>{{ $row->catatan }}</td>

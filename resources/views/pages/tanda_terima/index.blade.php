@@ -19,8 +19,8 @@
                         <thead>
                             <tr>
                                 <td>Id</td>
-                                <td>Tgl Masuk</td>
                                 <td>Customer</td>
+                                <td>Tgl Masuk</td>
                                 <td>Brand / Model</td>
                                 <td>Masalah </td>
                                 <td>Catatan </td>
