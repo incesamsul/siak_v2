@@ -20,12 +20,12 @@
                             <tr>
                                 <td>Id</td>
                                 <td>Tgl Masuk</td>
-                                <td>Tgl Keluar</td>
                                 <td>Customer</td>
                                 <td>Brand / Model</td>
                                 <td>Masalah </td>
                                 <td>Catatan </td>
                                 <td>Warna</td>
+                                <td>Tgl Keluar</td>
                                 <td>Aksi</td>
                                 <td></td>
                             </tr>

@@ -33,6 +33,7 @@ Route::get('/customer/{id_servisan}', [General::class, 'customer']);
 
 Route::get('/tentang_aplikasi', [Home::class, 'tentangAplikasi']);
 
+Route::get('/verifikasi_customer/{whatsapp}/{id_customer}', [Admin::class, 'verifikasiCustomer']);
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');

@@ -3,11 +3,16 @@
     <?php
     $message = "*Halo * %0a";
     $message .= "Berikut link untuk tanda terima anda :%0a%0a";
-    $message .= URL::to(Request::root() . '/ak-' . $row->id_servisan) ." %0a%0a";
+    $message .= URL::to(Request::root() . '/customer/ak-' . $row->id_servisan) ." %0a%0a";
     $message .= "(Jangan bagikan link ini kepada siapapun, Tanda terima ini digunakan untuk mengambil laptop anda)";
   ?>
     <td>{{ $row->id_servisan }}</td>
     <td>{{ $row->tgl_masuk }}</td>
+    <td>{{ $row->customer->nama_customer . '(' . $row->customer->no_hp . ')' }}</td>
+    <td>{{ $row->brand->nama_brand . ' / ' . $row->model->nama_model }}</td>
+    <td>{{ $row->masalah }}</td>
+    <td>{{ $row->catatan }}</td>
+    <td>{{ $row->warna }}</td>
     <td>
         @if(!$row->tgl_keluar)
         <a onclick="return confirm('yakin')" href="{{ URL::to('/admin/keluarkan/' . $row->id_servisan) }}" class="badge badge-danger"><i class="fas fa-sign-out"></i></a>
@@ -15,11 +20,6 @@
         {{ $row->tgl_keluar  }}
         @endif
     </td>
-    <td>{{ $row->customer->nama_customer . '(' . $row->customer->no_hp . ')' }}</td>
-    <td>{{ $row->brand->nama_brand . ' / ' . $row->model->nama_model }}</td>
-    <td>{{ $row->masalah }}</td>
-    <td>{{ $row->catatan }}</td>
-    <td>{{ $row->warna }}</td>
     <td>
         <a href="{{ URL::to('/customer/ak-'. $row->id_servisan) }}" class="btn btn-info">
             <i class="fas fa-print"></i>

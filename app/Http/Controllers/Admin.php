@@ -63,7 +63,17 @@ class Admin extends Controller
         return redirect()->back()->with('message', 'Pengguna Berhasil di tambahkan');
     }
 
+    public function verifikasiCustomer($whatsapp, $idCustomer)
+    {
+        $arrIdCustomer = explode("-", $idCustomer);
+        $customer = Servisan::where('id_servisan', end($arrIdCustomer))->first();
 
+        if ($whatsapp == $customer->customer->no_hp) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
 
     // fetch data user by admin

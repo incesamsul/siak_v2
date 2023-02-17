@@ -215,6 +215,8 @@ if(whatsapp == '' || whatsapp == null) {
 } else {
   $('#feedbackMessage').html('');
 }
+
+
 $.ajax({
   headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
