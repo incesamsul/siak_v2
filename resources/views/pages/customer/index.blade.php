@@ -30,6 +30,28 @@
      <link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
 
   </head>
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printArea, #printArea * {
+        visibility: visible;
+        color: black !important;
+      }
+
+      
+
+      #printArea table tr td{
+        padding: 0 !important;
+      }
+      #printArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  </style>
   <body>
 
 
@@ -79,11 +101,12 @@
     <!-- END nav -->
       
       @if($servisan)
-      <section class="ftco-section services-section bg-light">
+      <section id="printArea" class="ftco-section services-section bg-light">
         <div class="container">
             <div class="row my-5">
-                <div class="col-sm-12">
-                    <h4>Informasi Customer</h4>
+                <div class="col-sm-12 d-flex ">
+                    <h4 class="mt-5 mr-3">Informasi Customer</h4>
+                    <img src="{{ asset('eventalk-master/images/logo_ak.jpg') }}" alt="logo" width="100">
                 </div>
             </div>
           <div class="row">
@@ -91,7 +114,7 @@
                 <div id="qrcode_tamu"></div>
             </div>
             <div class="col-md-9">
-              <table class="table">
+              <table class="table table-striped" cellspacing="0" cellpadding="10">
                 <tr>
                     <td>Nama</td>
                     <td>:</td>
