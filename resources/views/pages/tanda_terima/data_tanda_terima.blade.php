@@ -12,7 +12,11 @@
     <td>{{ $row->brand->nama_brand . ' / ' . $row->model->nama_model }}</td>
     <td>{{ $row->masalah }}</td>
     <td>{{ $row->catatan }}</td>
-    <td>{{ $row->warna }}</td>
+    <td>
+        <span class="btn" style="background:{{ $row->warna }}">
+            .
+        </span>
+    </td>
     <td>
         @if(!$row->tgl_keluar)
         <a onclick="return confirm('yakin')" href="{{ URL::to('/admin/keluarkan/' . $row->id_servisan) }}" class="badge badge-danger"><i class="fas fa-sign-out"></i></a>

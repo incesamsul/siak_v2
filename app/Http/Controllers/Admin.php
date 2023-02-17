@@ -50,7 +50,9 @@ class Admin extends Controller
 
     public function tandaTerima()
     {
-        $data['tandaTerima'] = Servisan::paginate(10);
+        $data['tandaTerima'] = Servisan::all();
+        $data['customer'] = Customer::all();
+        $data['model'] = ModelLaptop::all();
         return view('pages.tanda_terima.index', $data);
     }
 

@@ -133,7 +133,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="warna">warna</label>
-                                        <input type="text" class="form-control" name="warna" id="warna">
+                                        <input type="color" class="form-control" name="warna" id="warna">
                                     </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="kembali"/>
@@ -212,8 +212,47 @@
 
         let jsonLaptop = '{{ getBrandLaptops() }}';
         let fixJsonLaptop = jsonLaptop.replace(/&quot;/g, '"');
-    $('#brand').autocomplete({
+        $('#brand').autocomplete({
             source: JSON.parse(fixJsonLaptop)
+        });
+
+        let customer = '{{ $customer }}';
+        let fixJsonCustomer = customer.replace(/&quot;/g, '"');
+        let jsonCustomer = JSON.parse(fixJsonCustomer);
+        let customerArr = jsonCustomer.map(obj => obj.nama_customer + " / " + obj.no_hp);
+        $('#nama_customer').autocomplete({
+            source: customerArr,
+            select: function(event, ui) {
+               // This code will be executed when the user selects an item
+               let selectedItem = ui.item.value;
+               let arrSelectedItem = selectedItem.split('/');
+               setTimeout(function() {
+                    $(event.target).val(arrSelectedItem[0]);
+                    $('#no_hp').val(arrSelectedItem[1]);    
+                }, 0);
+            }
+        });
+
+
+        let model = '{{ $model }}';
+        let fixJsonModel = model.replace(/&quot;/g, '"');
+        let jsonModel = JSON.parse(fixJsonModel);
+        let modelArr = jsonModel.map(obj => obj.nama_model);
+        $('#model').autocomplete({
+            source: modelArr,
+        });
+
+        let servisan = '{{ $tandaTerima }}';
+        let fixServisanJson = servisan.replace(/&quot;/g, '"');
+        let servisanJson = JSON.parse(fixServisanJson);
+        let detailMasalahArr = servisanJson.map(obj => obj.masalah);
+        let catatanArr = servisanJson.map(obj => obj.catatan);
+        $('#detail_masalah').autocomplete({
+            source: detailMasalahArr,
+        });
+
+        $('#catatan_tambahan').autocomplete({
+            source: catatanArr,
         });
 
 
