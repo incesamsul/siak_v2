@@ -148,7 +148,7 @@
                 <tr>
                     <td>Warna</td>
                     <td>:</td>
-                    <td>{{ $servisan->warna }}</td>
+                    <td id="codeColor">{{ $servisan->warna }}</td>
                 </tr>
                 <tr>
                     <td>Catatan</td>
@@ -223,7 +223,17 @@
 
     {{-- sweet alert --}}
 <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+
+<script src="{{ asset('plugins/ntc/ntc.js') }}"></script>
 <script>
+
+let codeColorEl = $('#codeColor');
+let codeColorContent = codeColorEl.html()
+let result = ntc.name(codeColorContent);
+codeColorEl.html(result[1]);
+
+
+
      $('#btnVerifikasi').on('click',function(){
 
 let parent = $(this);
